@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>First Canvas</title>
+<link rel="stylesheet" type="text/css"  href="softwaredev.css" />
+<style type="text/css">
+
+</style>
+<script>
+var n;
+var timeoutID;
+var numStars=800;
+
+window.onload=function()
+{
+  canvas=document.getElementById("ibmpcArea");
+  context=canvas.getContext("2d");
+  
+  context.font="12pt Arial";
+  context.fillStyle="white";
+  context.strokeStyle="white";
+  context.lineWidth=2;
+  timeoutID=setTimeout("beginOutput()", 600);
+
+};
+function beginOutput() {
+  context.clearRect(0, 0, 300, 200);
+  n=0;
+  timeoutID=setTimeout("outputBox()", 600);
+}
+function outputIn() {
+  context.fillText("In", 1, 20);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputThe()", 600);
+}
+function outputThe() {
+  context.fillText("The", 17, 20);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputBeg()", 750);
+}
+function outputBeg() {
+  context.fillText("Beginning", 48, 20);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputDot1()", 800);
+}
+function outputDot1() {
+  context.fillText(".", 122, 20);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputDot2()", 500);
+}
+function outputDot2() {
+  context.fillText(".", 130, 20);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputDot3()", 500);
+}
+function outputDot3() {
+  context.fillText(".", 138, 20);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputStars()", 1200);
+}
+function outputBox() {
+  context.strokeRect (2, 25, 295, 152);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputIn()", 1000);
+}
+
+function outputStars() {
+  clearTimeout(timeoutID);
+  context.fillStyle="#white";
+var startAngle = (Math.PI/180)*0;
+var endAngle = (Math.PI/180)*360;
+ /* for(n=0; n<numStars; n++) */
+  if (n<numStars)
+  {
+    var xPos = 150-((n/numStars)*(Math.random()*((300/2)-3)));
+	var yPos = 100+((n/numStars)*(Math.random()*((200/2)-24)));
+	context.beginPath();
+    context.arc(xPos, yPos, 0.5, startAngle, endAngle, false);
+    context.fill();
+    var xPos = 150-((n/numStars)*(Math.random()*((canvas.width/2)-3)));
+	var yPos = 100-((n/numStars)*(Math.random()*((canvas.height/2)-24)));
+	context.beginPath();
+    context.arc(xPos, yPos, 0.5, startAngle, endAngle, false);
+    context.fill();
+    var xPos = 150+((n/numStars)*(Math.random()*((canvas.width/2)-3)));
+	var yPos = 100+((n/numStars)*(Math.random()*((canvas.height/2)-24)));
+	context.beginPath();
+    context.arc(xPos, yPos, 0.5, startAngle, endAngle, false);
+    context.fill();
+    var xPos = 150+((n/numStars)*(Math.random()*((canvas.width/2)-3)));
+	var yPos = 100-((n/numStars)*(Math.random()*((canvas.height/2)-24)));
+	context.beginPath();
+    context.arc(xPos, yPos, 0.5, startAngle, endAngle, false);
+    context.fill();
+	n++;
+	outputDelay();
+  }
+  else {
+  timeoutID=setTimeout("outputLight()", 800);
+  }
+}
+function outputDelay() {
+  if (n%2==0) {
+  timeoutID=setTimeout("outputStars()", 12);
+  }
+  else {
+    outputStars();
+  }
+}
+function outputLight() {
+  context.fillText("There Was Light ! ! !", 150, 195);
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("beginOutput()", 4000);
+}
+
+</script>
+
+
+</head>
+
+<body>
+    <div style="width:300px; height:200px; margin:0; padding:5px;">
+      <canvas id="ibmpcArea" width="300" height="200"
+      style="border:3px background-color:#333;
+      background-color: #000"> Your browser doesn't currently support HTML5 Canvas. </canvas>
+    </div>
+    <p>
+My first canvas, which fairly closely emulates my very first BASIC program I wrote for the IBM PC.</p>
+
+</body>
+</html>

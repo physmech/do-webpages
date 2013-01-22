@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>"Influence"</title>
+<link rel="stylesheet" type="text/css"  href="softwaredev.css" />
+<style type="text/css">
+
+</style>
+<script>
+var n, i, x;
+var circleSize;
+var numSteps=220;
+var fadeSteps=20;
+var numPoints=1600;
+var timeoutID;
+var rando;
+var randxb, randxp;
+var randyb, randyp;
+window.onload=function()
+{
+  canvas=document.getElementById("spiralArea");
+  context=canvas.getContext("2d");
+
+  context.fillStyle="white";
+  context.strokeStyle="white";
+  timeoutID=setTimeout("initialize()", 10);
+ 
+};
+function initialize() {
+  clearTimeout(timeoutID);
+  n=0;
+  i=1;
+  x=1;
+  context.clearRect(0,0,300,300);
+  rando=0.01-(0.02*Math.random());
+  randxb=160+(140*Math.random());
+  randyb=20+(260*Math.random());
+  randxp=140-(140*Math.random());
+  randyp=20+(260*Math.random());
+  fadeinPair();
+}
+function fadeinPair() {
+	clearTimeout(timeoutID);
+	context.clearRect(0,0,300,300);
+	var startAng=(Math.PI/180)*0;
+	var endAng=(Math.PI/180)*360;
+	if (x<fadeSteps) {
+      context.globalAlpha=.05*x;
+	  context.fillStyle="blue";
+	  context.beginPath();
+      context.arc((randxb-((1/numSteps)*(randxb-150))), (randyb-((1/numSteps)*(randyb-150))), (10-(9*(1/numSteps))), startAng, endAng, false);
+	  context.fill();
+	  context.globalAlpha=.05*x;
+	  context.fillStyle="deeppink";
+	context.beginPath();
+    context.arc((randxp-((1/numSteps)*(randxp-150))), (randyp-((1/numSteps)*(randyp-150))), (10-(9*(1/numSteps))), startAng, endAng, false); 
+    context.fill();
+	  x++;
+	  fadeinDelay(); 
+	} else {
+	  outputPair();
+	}
+}
+function fadeinDelay() {
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("fadeinPair()", 75);
+}
+function outputPair() {
+	clearTimeout(timeoutID);
+	context.clearRect(0,0,300,300);
+	context.globalAlpha=1;
+  var startAngle = (Math.PI/180)*0;
+  var endAngle = (Math.PI/180)*360;
+  if (i<numSteps) {
+	context.beginPath();
+    context.arc((randxb-((i/numSteps)*(randxb-150))), (randyb-((i/numSteps)*(randyb-150))), (10-(9*(i/numSteps))), startAngle, endAngle, false); 
+	context.fillStyle="blue";
+    context.fill();
+	context.beginPath();
+    context.arc((randxp-((i/numSteps)*(randxp-150))), (randyp-((i/numSteps)*(randyp-150))), (10-(9*(i/numSteps))), startAngle, endAngle, false); 
+	context.fillStyle="deeppink";
+    context.fill();
+	i++;
+	pairDelay();
+  } else {
+    outputPoint();
+  }
+}
+function pairDelay() {
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("outputPair()", 20);
+}
+function outputPoint() {
+  clearTimeout(timeoutID);
+  var startAngle = (Math.PI/180)*0;
+  var endAngle = (Math.PI/180)*360;
+
+  if (n<numPoints)
+  {
+    var xPos1 = 150+((0.15*n)*(Math.sin(rando*n)*(n/(numPoints-20))));
+	var yPos1 = 150+((0.15*n)*(Math.cos(rando*n)*(n/(numPoints-20)))); 
+	context.beginPath();
+    context.arc(xPos1, yPos1, 1, startAngle, endAngle, false);
+	context.fillStyle="blue";
+    context.fill();
+    var xPos2 = 150+((0.125*n)*(Math.sin(rando*n)*(n/(numPoints-20))));
+	var yPos2 = 150+((0.125*n)*(Math.cos(rando*n)*(n/(numPoints-20)))); 
+	context.beginPath();
+    context.arc(xPos2, yPos2, 1, startAngle, endAngle, false);
+	context.fillStyle="deeppink";
+    context.fill();
+
+	if (n%7==0) {
+	context.strokeStyle="gold";
+	context.lineWidth=1;
+	context.beginPath();
+	context.moveTo(xPos1, yPos1);
+	context.lineTo(xPos2, yPos2);
+	context.stroke();
+    var xPos1 = 150+((0.15*n)*(Math.sin(rando*n)*(n/(numPoints-20))));
+	var yPos1 = 150+((0.15*n)*(Math.cos(rando*n)*(n/(numPoints-20)))); 
+	context.beginPath();
+    context.arc(xPos1, yPos1, 1, startAngle, endAngle, false);
+	context.fillStyle="blue";
+    context.fill();
+    var xPos2 = 150+((0.125*n)*(Math.sin(rando*n)*(n/(numPoints-20))));
+	var yPos2 = 150+((0.125*n)*(Math.cos(rando*n)*(n/(numPoints-20)))); 
+	context.beginPath();
+    context.arc(xPos2, yPos2, 1, startAngle, endAngle, false);
+	context.fillStyle="deeppink";
+    context.fill();
+
+	}
+	n++;
+    outputLight();
+  }
+  else {
+	  x=1;
+    timeoutID=setTimeout("fadeOut()", 2500);
+  }
+}
+function outputLight() {
+  clearTimeout(timeoutID);
+  if (n%2 == 0) {
+  timeoutID=setTimeout("outputPoint()", 1);
+  } else {outputPoint();}
+}
+function fadeOut() {
+  clearTimeout(timeoutID);
+ 	if (x<fadeSteps) {
+      context.globalAlpha=.05*x;
+	  context.fillStyle="black";
+      context.fillRect (0, 0, 300, 300);
+	  x++;
+	  timeoutID=setTimeout("fadeoutDelay()", 1);
+	} else {
+      initialize();
+	}
+}
+function fadeoutDelay() {
+  clearTimeout(timeoutID);
+  timeoutID=setTimeout("fadeOut()", 60);
+}
+</script>
+
+</head>
+
+<body>
+    <div style="width:300px; height:300px; margin:0; padding:5px;">
+      <canvas id="spiralArea" width="300" height="300"
+      style="border:3px background-color:#333;
+      background-color:#000"> Your browser doesn't currently support HTML5 Canvas. </canvas>
+    </div>
+    <p>
+"Influence"</p>
+
+</body>
+</html>

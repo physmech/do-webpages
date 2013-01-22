@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML Examples</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #333333;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+ul, ol, dl { 
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	
+	padding-right: 15px;
+	padding-left: 15px;
+}
+a img { 
+	border: none;
+}
+
+a:link {
+	color: #0000FF;
+	text-decoration: underline;
+}
+a:visited {
+	color: #990066;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { 
+	text-decoration: none;
+}
+
+.container {
+	width: 80%;
+	max-width: 1260px;
+	min-width: 720px;
+	background-color: #FFF;
+	margin: 0 auto; 
+}
+
+.header {
+	background-color: #003300;
+}
+
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background-color: #0099CC;
+	padding-bottom: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.content {
+	padding: 10px 0;
+	width: 40%;
+	float: left;
+	background-color: 
+; 	background-color: #3C0;
+}
+.sidebar2 {
+	float: left;
+	width: 40%;
+	background-color: #CCCC00;
+	padding: 10px 0;
+}
+
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; 
+}
+
+ul.nav {
+	list-style: none; 
+	border-top: 1px solid #666; 
+	margin-bottom: 15px;
+}
+ul.nav li {
+	border-bottom: 1px solid #666; 
+}
+ul.nav a, ul.nav a:visited { 
+	padding: 5px 5px 5px 15px;
+	display: block; 
+	text-decoration: none;
+	background-color: #8090AB;
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { 
+	background-color: #6F7D94;
+	color: #FFF;
+}
+
+.footer {
+	padding: 10px 0;
+	background-color: #6F7D94;
+	position: relative;
+	clear: both; 
+}
+
+.fltrt { 
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { 
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { 
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style><!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } 
+ul.nav a { zoom: 1; }  
+</style>
+<![endif]-->
+<script>
+function init() {  
+  var buttn=document.getElementById("htmlout");
+  buttn.innerHTML="<br />Click a button to see output.<br /><br />This page uses";
+  buttn=document.getElementById("htmlcode");
+  buttn.innerHTML="<br />Click a button to see code.<br /><br />JavaScript and DOM now.";
+  buttn=document.getElementById("buttonsButton");
+  buttn.onclick=showButtons;
+  buttn=document.getElementById("hyperButton");
+  buttn.onclick=showHyper;
+  buttn=document.getElementById("imageButton");
+  buttn.onclick=showImage;
+  buttn=document.getElementById("formsButton");
+  buttn.onclick=showForm;
+  buttn=document.getElementById("tableButton");
+  buttn.onclick=showTable;
+  buttn=document.getElementById("listButton");
+  buttn.onclick=showList;
+  buttn=document.getElementById("html5Button");
+  buttn.onclick=showHTML5;
+}
+window.onload=init;
+function showButtons() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<p><br /><input type =\"button\" value =\"Input\" /></p><p><input type =\"submit\" value =\"Submit\" /></p><p><input type =\"reset\" value =\"Reset\" /></p><p><button type =\"button\">Button</button></p>";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<p><br /><p>&lt;input type = \"button\"<br />&nbsp;&nbsp;value = \"Input\" /></p><p>&lt;input type = \"submit\"<br />&nbsp;&nbsp;value = \"Submit\" /></p><p>&lt;input type = \"reset\"<br />&nbsp;&nbsp;value = \"Reset\" /></p><p>&lt;button type = \"button\"><br />&nbsp;&nbsp;Button<br />&lt;/button></p></p>";
+}
+function showHyper() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<p><br />Find it <a href=\" \">here</a><br /></p>(Clicking the link will reset the page.)";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<p><br />Find it &lt;a href=\"<i>url</i>\">here&lt;/a></p>";
+}
+function showImage() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<p><br /><img src=\"Andfly1.jpg\" width=\"200\" height=\"200\" alt=\"Flying Android\" /></p>";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<p><br />&lt;img src=\"Andfly1.jpg\"<br />&nbsp;&nbsp;width=\"200\" height=\"200\"<br />&nbsp;&nbsp;alt=\"Flying Android\" /><br /></p>";
+}
+function showForm() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<form action=\" \"><p><br /><label>What is your favorite subject? </label><select id=\"setTech\"><option value=\"html\">HTML</option><option value=\"css\">CSS</option><option value=\"js\">JavaScript</option><option value=\"jq\">jQuery</option><option value=\"php\">PHP</option><option value=\"mysql\">MySQL</option></select></p></form>";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<br />&lt;form action=\" \"><br />&nbsp;&nbsp;&lt;label>What is your favorite subject? &lt;/label><br />&nbsp;&nbsp;&lt;select id=\"setTech\"><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=\"html\">HTML&lt;/option><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=\"css\">CSS&lt;/option><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=\"js\">JavaScript&lt;/option><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=\"jq\">jQuery&lt;/option><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=\"php\">PHP&lt;/option><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value=\"mysql\">MySQL&lt;/option><br />&nbsp;&nbsp;&lt;/select><br />&lt;/form><br />";  
+}
+function showTable() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<br /><table border=\"1\"><tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th></tr><tr><td>book_id</td><td>int</td><td>NO</td><td>PRI</td></tr><tr><td>title</td><td>varchar(128)</td><td>YES</td><td> </td></tr><tr><td colspan=\"4\">Under Construction</td></tr></table>";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<p><br />&lt;table border=\"1\"><br />&nbsp;&nbsp;&lt;tr><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;th>Field&lt;/th><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;th>Type&lt;/th><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;th>Null&lt;/th><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;th>Key&lt;/th><br />&nbsp;&nbsp;&lt;/tr><br />&nbsp;&nbsp;&lt;tr><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td>book_id&lt;/td><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td>int&lt;/td><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td>NO&lt;/td><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td>PRI&lt;/td><br />&nbsp;&nbsp;&lt;/tr><br />&nbsp;&nbsp;&lt;tr><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td>title&lt;/td><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td>varchar(128)&lt;/td><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td> &lt;/td><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td> &lt;/td><br />&nbsp;&nbsp;&lt;/tr><br />&nbsp;&nbsp;&lt;tr><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;td colspan=\"4\">Under Construction&lt;/td><br />&nbsp;&nbsp;&lt;/tr><br />&lt;/table></p>";
+}
+function showList() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<br /><ul><li>Client</li><ol><li>JavaScript</li><li>jQuery</li></ol><li>Server</li><ol><li>PHP</li><li>MySQL</li></ol></ul></p><dl><dt>SL4A</dt><dd>Scripting Layer for Android</dd><dt>JPEG</dt><dd>Joint Photographic Experts Group</dd><dt>RWD</dt><dd>Responsive Web Design</dd></dl>";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<br />&lt;ul><br />&nbsp;&nbsp;&lt;li>Client&lt;/li><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;ol>&lt;li>JavaScript&lt;/li><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>jQuery&lt;/li>&lt;/ol><br />&nbsp;&nbsp;&lt;li>Server&lt;/li><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;ol>&lt;li>PHP&lt;/li><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;li>MySQL&lt;/li>&lt;/ol><br />&lt;/ul><br /><br />&lt;dl><br />&nbsp;&nbsp;&lt;dt>SL4A&lt;/dt><br />&nbsp;&nbsp;&lt;dd>Scripting Layer for Android&lt;/dd><br />&nbsp;&nbsp;&lt;dt>JPEG&lt;/dt><br />&nbsp;&nbsp;&lt;dd>Joint Photographic Experts Group&lt;/dd><br />&nbsp;&nbsp;&lt;dt>RWD&lt;/dt><br />&nbsp;&nbsp;&lt;dd>Responsive Web Design&lt;/dd><br />&lt;/dl>";
+}
+function showHTML5() {
+  var resultOut=document.getElementById("htmlout");
+  resultOut.innerHTML="<br /><form action = \"\"><label for=\"number\">Miles</label><input type=\"number\" id=\"number\" min=\"0\" max=\"26\" step=\"2\" value=\"10\" /> *<br /><br /><label for=\"date\">Date</label><input type=\"date\" /> *<br /><br /><label for=\"range\">Splits</label><input type=\"range\" id=\"range\" min=\"0\" max=\"1500\" step=\"100\" value=\"400\" /> *<br /><br /><button type = \"button\">Pace</button></form><br /> * Works properly in Chrome, Safari.";
+  resultOut=document.getElementById("htmlcode");
+  resultOut.innerHTML="<br />&lt;form action=\"\"><br />&nbsp;&nbsp;&lt;label for=\"number\">Miles&lt;/label><br />&nbsp;&nbsp;&lt;input type=\"number\" id=\"setMiles\"<br />&nbsp;&nbsp;&nbsp;&nbsp;min=\"0\" max=\"26\"<br />&nbsp;&nbsp;&nbsp;&nbsp;step=\"2\" value=\"10\" /><br /><br />&nbsp;&nbsp;&lt;label for=\"date\">Date&lt;/label><br />&nbsp;&nbsp;&lt;input type=\"date\" /><br /><br />&nbsp;&nbsp;&lt;label for=\"range\">Splits&lt;/label><br />&nbsp;&nbsp;&lt;input type=\"range\" id=\"selectSplit\"<br />&nbsp;&nbsp;&nbsp;&nbsp;min=\"0\" max=\"1500\"<br />&nbsp;&nbsp;&nbsp;&nbsp;step=\"100\" value=\"400\" /><br /><br />&nbsp;&nbsp;&lt;button type = \"button\"> Pace &lt;/button><br>&lt;/form>";
+}
+</script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header"><a href="#"><img src="html.jpg" alt="Insert Logo Here" name="Insert_logo" width="20%" height="120" id="Insert_logo" style="background-color: #8090AB; display:block;" /></a> 
+    <!-- end .header --></div>
+  <div class="sidebar1">
+    <b><u>HTML Elements</u></b><br /><br />
+    <input type="button" id="buttonsButton" value="Buttons"><br /><br />
+    <input type="button" id="hyperButton" value="Hyperlinks"><br /><br />
+    <input type="button" id="imageButton" value="Images"><br /><br />
+    <input type="button" id="formsButton" value="Forms"><br /><br />
+    <input type="button" id="tableButton" value="Tables"><br /><br />
+    <input type="button" id="listButton" value="Lists"><br /><br />    
+    <input type="button" id="html5Button" value="HTML5"><br /><br />
+    <a href="software.html"><b>Back to Software</b></a><br /><br />
+
+      <b>Under construction</b>                 
+  </div>
+  <div class="content">
+  <b><u>HTML Output</u></b>
+  <p id="htmlout">
+    
+  </p>
+  </div>
+  <div class="sidebar2">
+    <b><u>HTML Code</u></b>
+    <p id="htmlcode">
+ 
+    </p>
+  </div>
+</div>
+</body>
+</html>
