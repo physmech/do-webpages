@@ -21,7 +21,6 @@ window.onload=function()
   context.strokeStyle="white";
   context.lineWidth=2;
   timeoutID=setTimeout("beginOutput()", 600);
-
 };
 function beginOutput() {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -59,7 +58,7 @@ function outputDot3() {
   timeoutID=setTimeout("outputStars()", 1200);
 }
 function outputBox() {
-  context.strokeRect (2, 25, (canvas.width-5), (canvas.height-48);
+  context.strokeRect (2, 25, (canvas.width-5), (canvas.height-48));
   clearTimeout(timeoutID);
   timeoutID=setTimeout("outputIn()", 1000);
 }
@@ -107,13 +106,12 @@ function outputDelay() {
   }
 }
 function outputLight() {
-  context.fillText("There Was Light ! ! !", (canvas.width-150), (canvas.height-5);
+  context.fillText("There Was Light ! ! !", (canvas.width-150), (canvas.height-5));
   clearTimeout(timeoutID);
   timeoutID=setTimeout("beginOutput()", 4000);
 }
 
 </script>
-
 
 </head>
 
